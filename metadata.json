@@ -1,0 +1,6 @@
+{
+  "name": "UTM Shuttle Map",
+  "description": "An OpenStreetMap-based bus tracker for Universiti Teknologi Malaysia (UTM) that calculates routes and simulates real-time bus positions based on schedule and time, with a sleek glassmorphism UI.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

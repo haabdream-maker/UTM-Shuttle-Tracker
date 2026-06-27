@@ -1,0 +1,132 @@
+@import "tailwindcss";
+
+:root {
+  --utm-maroon: #800000;
+  --glass-bg: rgba(255, 255, 255, 0.15);
+  --glass-border: rgba(255, 255, 255, 0.25);
+  --glass-blur: blur(16px);
+}
+
+/* Beautiful frosted glass card utility class */
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 8px 32px 0 rgba(15, 23, 42, 0.08);
+}
+
+/* Glass panel that works beautifully on dark backgrounds */
+.glass-card-dark {
+  background: rgba(15, 23, 42, 0.55);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+/* Glass panel that works beautifully on light/mixed backgrounds */
+.glass-card-light {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 8px 32px 0 rgba(15, 23, 42, 0.12);
+}
+
+/* Ensure map container handles full sizing */
+.leaflet-container {
+  font-family: inherit;
+  background-color: #0f172a !important; /* Premium dark background */
+}
+
+/* Custom Scrollbars */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 5px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(15, 23, 42, 0.15);
+  border-radius: 9999px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(15, 23, 42, 0.3);
+}
+
+/* Hide default horizontal scrollbar helper on zones */
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Premium Range Input Styling */
+input[type="range"] {
+  accent-color: #800000; /* UTM Maroon */
+}
+
+/* Leaflet Custom overrides */
+.leaflet-tooltip-top::before {
+  border-top-color: rgba(255, 255, 255, 0.95) !important;
+}
+
+.leaflet-tooltip {
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Interactive transitions */
+.custom-bus-marker, .custom-stop-marker {
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Pulsing markers animations */
+@keyframes ping {
+  0% {
+    transform: scale(1);
+    opacity: 0.35;
+  }
+  75%, 100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+
+/* Animated Bus Marker Keyframes */
+@keyframes bus-bounce {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-3.5px) rotate(1.5deg);
+  }
+}
+
+.animate-bus-icon {
+  animation: bus-bounce 1.6s ease-in-out infinite;
+}
+
+@keyframes bus-vibrate {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  25% {
+    transform: translate(-0.4px, 0.4px) scale(1.01);
+  }
+  50% {
+    transform: translate(0.4px, -0.4px) scale(1.02);
+  }
+  75% {
+    transform: translate(-0.4px, -0.4px) scale(1.01);
+  }
+}
+
+.animate-bus-boarding {
+  animation: bus-vibrate 0.35s linear infinite;
+}
+
